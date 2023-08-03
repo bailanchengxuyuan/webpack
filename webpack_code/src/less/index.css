@@ -1,0 +1,12 @@
+.box1 {
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  background-image: url('../image/logo.png');
+  background-size: cover;
+}
+.box1 .box2 {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
