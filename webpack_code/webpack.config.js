@@ -2,12 +2,13 @@
  * @Author: 天勇 343975805@qq.com
  * @Date: 2023-08-01 11:35:22
  * @LastEditors: 天勇 343975805@qq.com
- * @LastEditTime: 2023-08-07 15:04:59
+ * @LastEditTime: 2023-08-07 15:45:38
  * @FilePath: /webpack/webpack_code/webpack.config.js
  * @Description: 
  */
 /* nodejs的核心模块，专门用来处理路径问题 */
 const { clear } = require("console")
+const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require("path")
 module.exports = {
   /* 
@@ -96,6 +97,9 @@ module.exports = {
   },
   plugins: [
     /* plugin配置 */
+    new ESLintPlugin({
+      /* 检测文件 */
+      context:path.resolve(__dirname,"src")})
   ],
   mode: 'development'
 
