@@ -2,8 +2,8 @@
  * @Author: 天勇 343975805@qq.com
  * @Date: 2023-08-01 11:35:22
  * @LastEditors: 天勇 343975805@qq.com
- * @LastEditTime: 2023-08-03 16:19:30
- * @FilePath: /demo/webpack_code/webpack.config.js
+ * @LastEditTime: 2023-08-07 15:04:59
+ * @FilePath: /webpack/webpack_code/webpack.config.js
  * @Description: 
  */
 /* nodejs的核心模块，专门用来处理路径问题 */
@@ -79,9 +79,9 @@ module.exports = {
         }
         
       },
-      /*  图片的处理 */
+      /*  图片的处理 也可以处理其他资源*/
       {
-        test: /\.(ttf|woff2?)$/,
+        test: /\.(ttf|woff2?|map3|map4|avi)$/,
         type: "asset/resource",
        
         generator:{
