@@ -2,7 +2,7 @@
  * @Author: 天勇 343975805@qq.com
  * @Date: 2023-08-01 11:35:22
  * @LastEditors: 天勇 343975805@qq.com
- * @LastEditTime: 2023-08-07 15:45:38
+ * @LastEditTime: 2023-08-07 16:22:08
  * @FilePath: /webpack/webpack_code/webpack.config.js
  * @Description: 
  */
@@ -26,7 +26,7 @@ module.exports = {
     /* 文件名 */
     filename: "static/js/main.js",
     /* 自动清空上次打包的内容 */
-    clean:true
+    clean: true
   },
   module: {
     rules: [
@@ -68,30 +68,41 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|webp)$/,
         type: "asset",
-        parser:{
-          dataUrlCondition:{
-            maxSize:4*1024
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024
           }
         },
-        generator:{
+        generator: {
           /* 输出图片的名字 */
           /* [hash:10]hash值取前10位 、拓展名 、可携带的参数 */
-          filename:"static/images/[hash:10][ext][query]",
+          filename: "static/images/[hash:10][ext][query]",
         }
-        
+
       },
       /*  图片的处理 也可以处理其他资源*/
       {
         test: /\.(ttf|woff2?|map3|map4|avi)$/,
         type: "asset/resource",
-       
-        generator:{
+
+        generator: {
           /* 输出图片的名字 */
           /* [hash:10]hash值取前10位 、拓展名 、可携带的参数 */
-          filename:"static/media/[hash:10][ext][query]",
-        } 
-        
+          filename: "static/media/[hash:10][ext][query]",
+        }
+
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,/* 排除 node_modules文件不处理*/
+       /*  use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        } */
+      },
+
 
     ]
   },
@@ -99,7 +110,8 @@ module.exports = {
     /* plugin配置 */
     new ESLintPlugin({
       /* 检测文件 */
-      context:path.resolve(__dirname,"src")})
+      context: path.resolve(__dirname, "src")
+    })
   ],
   mode: 'development'
 
